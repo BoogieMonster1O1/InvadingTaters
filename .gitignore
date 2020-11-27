@@ -81,7 +81,8 @@ local.properties
 .fuse_hidden*
 .directory
 .Trash-*
-.nfs*.DS_Store
+.nfs*
+.DS_Store
 .AppleDouble
 .LSOverride
 Icon._*
