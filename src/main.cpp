@@ -13,11 +13,11 @@ bool running = false;
 int move_dir = 0;
 bool pressed = false;
 
-void error_callback(int error, const char* description) {
+void errorCallback(int error, const char* description) {
 	fprintf(stderr, "Error: %s\n", description);
 }
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods){
+void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
 	switch(key){
 		case GLFW_KEY_ESCAPE:
 			if(action == GLFW_PRESS) running = false;
@@ -47,7 +47,7 @@ double random(uint32_t* rng) {
 	return (double) x / numeric_limits<uint32_t>::max();
 }
 
-void clear_buffer(sprite_buffer *buffer, uint32_t color) {
+void clearBuffer(sprite_buffer *buffer, uint32_t color) {
 	for(size_t i = 0; i < buffer->width * buffer->height; ++i) {
 		buffer->buf[i] = color;
 	}
@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
 	const size_t buffer_width = 224;
 	const size_t buffer_height = 256;
 
-	glfwSetErrorCallback(error_callback);
+	glfwSetErrorCallback(errorCallback);
 
 	if (!glfwInit()) return -1;
 
@@ -73,7 +73,7 @@ int main(int argc, char** argv) {
 		return -1;
 	}
 
-	glfwSetKeyCallback(window, key_callback);
+	glfwSetKeyCallback(window, keyCallback);
 
 	glfwMakeContextCurrent(window);
 
@@ -103,7 +103,7 @@ int main(int argc, char** argv) {
 	buffer.height = buffer_height;
 	buffer.buf   = new uint32_t[buffer.width * buffer.height];
 
-	clear_buffer(&buffer, 0);
+	clearBuffer(&buffer, 0);
 
 	GLuint buffer_texture;
 	glGenTextures(1, &buffer_texture);
@@ -462,7 +462,7 @@ int main(int argc, char** argv) {
 
 	int player_move_dir = 0;
 	while (!glfwWindowShouldClose(window) && running) {
-		clear_buffer(&buffer, clear_color);
+		clearBuffer(&buffer, clear_color);
 
 		if(game.player.life == 0) {
 
