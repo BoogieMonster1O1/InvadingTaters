@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 3.17)
-project(SpaceInvaders)
+project(InvadingTaters)
 
-add_executable(SpaceInvaders src/main.cpp)
-set_property(TARGET SpaceInvaders PROPERTY CXX_STANDARD 14)
-target_compile_options(SpaceInvaders PRIVATE -Wall)
+add_executable(InvadingTaters src/main.cpp src/data.h src/glutil.cpp src/glutil.h src/drawablehelper.cpp src/drawablehelper.h)
+set_property(TARGET InvadingTaters PROPERTY CXX_STANDARD 14)
+target_compile_options(InvadingTaters PRIVATE -Wall)
 
 # glfw
-add_subdirectory(lib/glfw EXCLUDE_FROM_ALL)
-target_link_libraries(SpaceInvaders PRIVATE glfw)
+add_subdirectory(glfw EXCLUDE_FROM_ALL)
+target_link_libraries(InvadingTaters PRIVATE glfw)
 
 # glew
 add_definitions(-DGLEW_STATIC)
-add_subdirectory(lib/glew EXCLUDE_FROM_ALL)
-target_link_libraries(SpaceInvaders PRIVATE libglew_static)
+add_subdirectory(glew-cmake EXCLUDE_FROM_ALL)
+target_link_libraries(InvadingTaters PRIVATE libglew_static)
 
 # glm
-add_subdirectory(lib/glm EXCLUDE_FROM_ALL)
-target_link_libraries(SpaceInvaders PRIVATE glm)
+add_subdirectory(glm EXCLUDE_FROM_ALL)
+target_link_libraries(InvadingTaters PRIVATE glm)
