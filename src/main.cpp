@@ -430,10 +430,8 @@ int main(int argc, char** argv) {
 	size_t alien_update_timer = 0;
 	bool should_change_speed = false;
 
-	for(size_t xi = 0; xi < 11; ++xi)
-	{
-		for(size_t yi = 0; yi < 5; ++yi)
-		{
+	for(size_t xi = 0; xi < 11; ++xi) {
+		for(size_t yi = 0; yi < 5; ++yi) {
 			tater& alien = game.aliens[xi * 5 + yi];
 			alien.type = (5 - yi) / 2 + 1;
 
@@ -445,8 +443,7 @@ int main(int argc, char** argv) {
 	}
 
 	auto* death_counters = new uint8_t[game.num_aliens];
-	for(size_t i = 0; i < game.num_aliens; ++i)
-	{
+	for(size_t i = 0; i < game.num_aliens; ++i) {
 		death_counters[i] = 10;
 	}
 
