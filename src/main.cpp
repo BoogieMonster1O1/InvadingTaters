@@ -6,6 +6,7 @@
 #include "data.h"
 #include "drawablehelper.h"
 #include "glutil.h"
+#include "state_manager.h"
 
 using namespace std;
 
@@ -90,13 +91,12 @@ int main(int argc, char** argv) {
 
 	gl_debug(__FILE__, __LINE__);
 
-	printf("Using OpenGL: %d.%d\n", glVersion[0], glVersion[1]);
-	printf("Renderer used: %s\n", glGetString(GL_RENDERER));
-	printf("Shading Language: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
+	printf("OpenGL: %d.%d\n", glVersion[0], glVersion[1]);
+	printf("Renderer: %s\n", glGetString(GL_RENDERER));
 
 	glfwSwapInterval(1);
 
-	glClearColor(1.0, 0.0, 0.0, 1.0);
+	StateManager::clearColor(1.0, 0.0, 0.0, 1.0);
 
 	sprite_buffer buffer{};
 	buffer.width  = buffer_width;
@@ -153,7 +153,7 @@ int main(int argc, char** argv) {
 	GLint location = glGetUniformLocation(shader_id, "buffer");
 	glUniform1i(location, 0);
 
-	glDisable(GL_DEPTH_TEST);
+	StateManager::disableDepthTest();
 	glActiveTexture(GL_TEXTURE0);
 
 	glBindVertexArray(fs_triangle_vao);

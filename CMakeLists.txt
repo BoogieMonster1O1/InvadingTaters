@@ -1,7 +1,17 @@
 cmake_minimum_required(VERSION 3.17)
 project(InvadingTaters)
 
-add_executable(InvadingTaters src/main.cpp src/data.h src/glutil.cpp src/glutil.h src/drawablehelper.cpp src/drawablehelper.h)
+add_executable(InvadingTaters
+        src/main.cpp
+        src/data.h
+        src/glutil.cpp
+        src/glutil.h
+        src/drawablehelper.cpp
+        src/drawablehelper.h
+        src/captracker.h
+        src/state_manager.cpp
+        src/state_manager.h
+        src/color4f.h)
 set_property(TARGET InvadingTaters PROPERTY CXX_STANDARD 14)
 target_compile_options(InvadingTaters PRIVATE -Wall)
 
