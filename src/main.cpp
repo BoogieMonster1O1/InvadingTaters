@@ -68,7 +68,7 @@ int main(int argc, char** argv) {
 
 	windowHints();
 
-	GLFWwindow* window = glfwCreateWindow(2 * buffer_width, 2 * buffer_height, "Space Invaders", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(2 * buffer_width, 2 * buffer_height, "Invading Taters", nullptr, nullptr);
 	if(!window) {
 		glfwTerminate();
 		return -1;
@@ -447,7 +447,7 @@ int main(int argc, char** argv) {
 		death_counters[i] = 10;
 	}
 
-	uint32_t clear_color = pack_rgb(0, 0, 0);
+	uint32_t clear_color = pack_rgb((int) (0.5F * 255), (int) (0.3F * 255), (int) (0.3F * 255));
 	uint32_t rng = 13;
 
 	int alien_move_dir = 4;
