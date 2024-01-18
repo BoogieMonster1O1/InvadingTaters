@@ -15,28 +15,28 @@ int move_dir = 0;
 bool pressed = false;
 
 void errorCallback(int error, const char* description) {
-	fprintf(stderr, "Error: %s\n", description);
+  fprintf(stderr, "Error: %s\n", description);
 }
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
-	switch(key){
-		case GLFW_KEY_ESCAPE:
-			if(action == GLFW_PRESS) running = false;
-			break;
-		case GLFW_KEY_RIGHT:
-			if(action == GLFW_PRESS) move_dir += 1;
-			else if(action == GLFW_RELEASE) move_dir -= 1;
-			break;
-		case GLFW_KEY_LEFT:
-			if(action == GLFW_PRESS) move_dir -= 1;
-			else if(action == GLFW_RELEASE) move_dir += 1;
-			break;
-		case GLFW_KEY_SPACE:
-			if(action == GLFW_RELEASE) pressed = true;
-			break;
-		default:
-			break;
-	}
+  switch(key){
+  case GLFW_KEY_ESCAPE:
+    if(action == GLFW_PRESS) running = false;
+    break;
+  case GLFW_KEY_RIGHT:
+    if(action == GLFW_PRESS) move_dir += 1;
+    else if(action == GLFW_RELEASE) move_dir -= 1;
+    break;
+  case GLFW_KEY_LEFT:
+    if(action == GLFW_PRESS) move_dir -= 1;
+    else if(action == GLFW_RELEASE) move_dir += 1;
+    break;
+  case GLFW_KEY_SPACE:
+    if(action == GLFW_RELEASE) pressed = true;
+    break;
+  default:
+    break;
+  }
 }
 
 double random(uint32_t* rng) {
