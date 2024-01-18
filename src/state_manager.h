@@ -9,15 +9,15 @@
 
 class StateManager {
 private:
-	static CapabilityTracker depthTest;
-	static Color4 clearColor4f;
+  static CapabilityTracker depthTest;
+  static Color4 clearColor4f;
 
 public:
-	static void enableDepthTest();
+  static void enableDepthTest();
 
-	static void disableDepthTest();
+  static void disableDepthTest();
 
-	static void clearColor(float red, float green, float blue, float alpha);
+  static void clearColor(float red, float green, float blue, float alpha);
 };
 
 #endif

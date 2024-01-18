@@ -5,35 +5,35 @@
 
 class CapabilityTracker {
 private:
-	GLenum cap;
-	bool value;
+  GLenum cap;
+  bool value;
 
 public:
-	CapabilityTracker(GLenum cap, bool def) {
-		this->cap = cap;
-		this->value = def;
-	}
+  CapabilityTracker(GLenum cap, bool def) {
+    this->cap = cap;
+    this->value = def;
+  }
 
-	virtual void enable() {
-		set(true);
-	}
+  virtual void enable() {
+    set(true);
+  }
 
-	virtual void disable() {
-		set(false);
-	}
+  virtual void disable() {
+    set(false);
+  }
 
-	virtual void set(bool val) {
-		this->value = val;
-		if (val) {
-			glEnable(cap);
-		} else {
-			glDisable(cap);
-		}
-	}
+  virtual void set(bool val) {
+    this->value = val;
+    if (val) {
+      glEnable(cap);
+    } else {
+      glDisable(cap);
+    }
+  }
 
-	virtual bool get() {
-		return value;
-	}
+  virtual bool get() {
+    return value;
+  }
 };
 
 #endif
