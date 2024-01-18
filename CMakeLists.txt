@@ -11,19 +11,20 @@ add_executable(InvadingTaters
         src/captracker.h
         src/state_manager.cpp
         src/state_manager.h
-        src/color4f.h)
-set_property(TARGET InvadingTaters PROPERTY CXX_STANDARD 14)
-target_compile_options(InvadingTaters PRIVATE -Wall)
+        src/color4f.h
+	)
+	set_property(TARGET InvadingTaters PROPERTY CXX_STANDARD 14)
+	target_compile_options(InvadingTaters PRIVATE -Wall)
 
-# glfw
-add_subdirectory(glfw EXCLUDE_FROM_ALL)
-target_link_libraries(InvadingTaters PRIVATE glfw)
+	# glfw
+	add_subdirectory(glfw EXCLUDE_FROM_ALL)
+	target_link_libraries(InvadingTaters PRIVATE glfw)
 
-# glew
-add_definitions(-DGLEW_STATIC)
-add_subdirectory(glew-cmake EXCLUDE_FROM_ALL)
-target_link_libraries(InvadingTaters PRIVATE libglew_static)
+	# glew
+	add_definitions(-DGLEW_STATIC)
+	add_subdirectory(glew-cmake EXCLUDE_FROM_ALL)
+	target_link_libraries(InvadingTaters PRIVATE libglew_static)
 
-# glm
-add_subdirectory(glm EXCLUDE_FROM_ALL)
-target_link_libraries(InvadingTaters PRIVATE glm)
+	# glm
+	add_subdirectory(glm EXCLUDE_FROM_ALL)
+	target_link_libraries(InvadingTaters PRIVATE glm)

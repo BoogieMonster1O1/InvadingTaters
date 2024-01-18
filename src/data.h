@@ -30,8 +30,8 @@ struct bullet {
 	int dir;
 };
 
-struct player {
-	size_t x, y;
+struct game_player {
+  size_t x, y;
 	size_t life;
 };
 
@@ -40,8 +40,8 @@ struct game_data {
 	size_t num_aliens;
 	size_t num_bullets;
 	tater* aliens;
-	player player;
-	bullet bullets[180];
+  game_player player;
+  bullet bullets[180];
 };
 
 struct dynamic_sprite {
